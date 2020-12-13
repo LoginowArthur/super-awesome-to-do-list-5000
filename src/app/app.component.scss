@@ -1,0 +1,15 @@
+.app-container {
+    width: 40%;
+    margin: auto;
+}
+
+.buttons-container {
+    margin-bottom: 20px;
+    button:not(:first-child) {
+        margin-left: 10px;
+    }
+}
+
+mat-form-field {
+    width: 100%;
+}

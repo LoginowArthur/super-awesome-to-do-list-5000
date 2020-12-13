@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { SectionModalComponent } from './section-modal/section-modal.component';
 import { TaskModalComponent } from './task-modal/task-modal.component';
 
 
@@ -13,15 +14,19 @@ export class AppComponent {
 
   constructor (private dialog: MatDialog) {}
 
+  addSection() {
+    const dialogRef = this.dialog.open(SectionModalComponent, {
+      width: '300px',
+      height: '150px',
+      data: {},
+    });
+  }
+
   addTask() {
     const dialogRef = this.dialog.open(TaskModalComponent, {
       width: '400px',
-      height: '275px',
-      data: {}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      height: '300px',
+      data: {},
     });
   }
 }

@@ -1,6 +1,17 @@
-<ul>
+<!-- <ul>
     <li 
     *ngFor="let task of tasksService.tasks; let i = index"
     (click)="onClickTask(i)"
     >{{task.title}} <span (click)="onClickRemove(i)">remove</span></li>
-</ul>
+</ul> -->
+
+<mat-expansion-panel *ngFor="let section of tasksService.sections">
+    <mat-expansion-panel-header>    
+        <mat-panel-title>
+        {{section.title}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+        <mat-list-item *ngFor="let task of section.tasks" role="listitem">{{task.title}}</mat-list-item>
+    </mat-list>
+</mat-expansion-panel>

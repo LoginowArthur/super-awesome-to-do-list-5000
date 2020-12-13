@@ -1,5 +1,10 @@
 <form [formGroup]="taskForm" class="task-form">
   <mat-form-field class="full-width">
+    <mat-label>Section</mat-label>
+    <input matInput formControlName="taskDescription" type="text">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
     <mat-label>Task</mat-label>
     <input matInput formControlName="taskName" type="text">
   </mat-form-field>
@@ -9,6 +14,7 @@
     <textarea matInput formControlName="taskDescription" type="text"></textarea>
   </mat-form-field>
 </form>
+
 <footer>
   <button (click)="onClickSave()" mat-stroked-button color="primary" cdkFocusInitial>save</button>
   <button (click)="onClickClose()" mat-stroked-button color="warn">close</button>

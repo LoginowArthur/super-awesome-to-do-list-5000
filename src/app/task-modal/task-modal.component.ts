@@ -8,7 +8,7 @@ import { TasksService } from '../tasks.service';
   templateUrl: './task-modal.component.html',
   styleUrls: ['./task-modal.component.scss']
 })
-export class TaskModalComponent  {
+export class TaskModalComponent implements OnInit {
   taskForm = new FormGroup({
     taskName: new FormControl(this.data.title, [Validators.required]),
     taskDescription: new FormControl(this.data.description)
@@ -19,6 +19,10 @@ export class TaskModalComponent  {
     public dialogRef: MatDialogRef<TaskModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
     ) {}
+
+    ngOnInit() {
+      console.log(this.tasksService.getSections());
+    }
     
     onClickSave(): void {
       const taskData = {

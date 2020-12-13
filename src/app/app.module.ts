@@ -7,22 +7,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 import { TaskModalComponent } from './task-modal/task-modal.component';
 
-import { MatInputModule } from '@angular/material/input';
-
-import {A11yModule} from '@angular/cdk/a11y';
+import { A11yModule } from '@angular/cdk/a11y';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { SectionModalComponent } from './section-modal/section-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskModalComponent,
-    TasksListComponent
+    TasksListComponent,
+    SectionModalComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatDialogModule,
     MatInputModule,    
+    MatExpansionModule,
+    // MatCardModule,
+    MatListModule,
     A11yModule,
   ],
   providers: [],

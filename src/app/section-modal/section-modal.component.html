@@ -1,0 +1,11 @@
+<form [formGroup]="sectionForm" class="section-form">
+    <mat-form-field class="full-width">
+      <mat-label>Section</mat-label>
+      <input matInput formControlName="sectionName" type="text">
+    </mat-form-field>
+
+    <footer>
+        <button (click)="onClickSave()" mat-stroked-button color="primary" cdkFocusInitial>save</button>
+        <button (click)="onClickClose()" mat-stroked-button color="warn">close</button>
+    </footer>
+</form>

@@ -18,7 +18,9 @@ export class AppComponent {
     const dialogRef = this.dialog.open(SectionModalComponent, {
       width: '300px',
       height: '150px',
-      data: {},
+      data: {
+        isEdit: false,
+      },
     });
   }
 
@@ -26,7 +28,9 @@ export class AppComponent {
     const dialogRef = this.dialog.open(TaskModalComponent, {
       width: '400px',
       height: '300px',
-      data: {},
+      data: {
+        isEdit: false
+      },
     });
   }
 }

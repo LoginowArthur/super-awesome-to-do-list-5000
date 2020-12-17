@@ -1,17 +1,19 @@
 <form [formGroup]="taskForm" class="task-form">
-  <mat-form-field class="full-width">
-    <mat-label>Section</mat-label>
-    <input matInput formControlName="taskDescription" type="text">
+  <mat-form-field appearance="empty" class="full-width">
+    <mat-label>section</mat-label>
+    <mat-select formControlName="section" disableRipple>
+      <mat-option [value]="section" *ngFor="let section of sections">{{section}}</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field class="full-width">
     <mat-label>Task</mat-label>
-    <input matInput formControlName="taskName" type="text">
+    <input matInput formControlName="title" type="text">
   </mat-form-field>
 
   <mat-form-field class="full-width">
     <mat-label>Task description</mat-label>
-    <textarea matInput formControlName="taskDescription" type="text"></textarea>
+    <textarea matInput formControlName="description" type="text"></textarea>
   </mat-form-field>
 </form>
 

@@ -24,7 +24,8 @@ export class SectionModalComponent implements OnInit {
   }
 
   onClickSave() {
-
+    this.tasksService.addSection(this.sectionForm.controls.sectionName.value);
+    this.dialogRef.close();
   }
 
   onClickClose() {

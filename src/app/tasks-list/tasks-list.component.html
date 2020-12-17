@@ -5,13 +5,13 @@
     >{{task.title}} <span (click)="onClickRemove(i)">remove</span></li>
 </ul> -->
 
-<mat-expansion-panel *ngFor="let section of tasksService.sections">
+<mat-expansion-panel *ngFor="let task of tasksService.tasksList">
     <mat-expansion-panel-header>    
         <mat-panel-title>
-        {{section.title}}
+        {{task.section}}
         </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-list role="list">
-        <mat-list-item *ngFor="let task of section.tasks" role="listitem">{{task.title}}</mat-list-item>
+        <mat-list-item *ngFor="let task of task.tasks" role="listitem">{{task.title}}</mat-list-item>
     </mat-list>
 </mat-expansion-panel>

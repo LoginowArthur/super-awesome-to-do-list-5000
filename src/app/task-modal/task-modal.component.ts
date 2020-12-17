@@ -8,10 +8,13 @@ import { TasksService } from '../tasks.service';
   templateUrl: './task-modal.component.html',
   styleUrls: ['./task-modal.component.scss']
 })
-export class TaskModalComponent implements OnInit {
+export class TaskModalComponent {
+  sections = this.tasksService.getSections();
+
   taskForm = new FormGroup({
-    taskName: new FormControl(this.data.title, [Validators.required]),
-    taskDescription: new FormControl(this.data.description)
+    section: new FormControl(this.sections[0]),
+    title: new FormControl(this.data.title, [Validators.required]),
+    description: new FormControl(this.data.description)
   })
 
   constructor(
@@ -20,19 +23,16 @@ export class TaskModalComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
     ) {}
 
-    ngOnInit() {
-      console.log(this.tasksService.getSections());
-    }
-    
     onClickSave(): void {
-      const taskData = {
-        title: this.taskForm.controls.taskName.value,
-        description: this.taskForm.controls.taskDescription.value
-      }
+      const taskData = {...this.taskForm.value}
+      console.log(taskData)
       
-      this.data.isEdit
-      ? this.tasksService.editTask(this.data.taskIndex, taskData)
-      : this.tasksService.addTask(taskData);1
+      if (!this.data.isEdit) {
+        this.tasksService.addTask(taskData)
+      }
+      // this.data.isEdit
+      // ? this.tasksService.editTask(this.data.taskIndex, taskData)
+      // : this.tasksService.addTask(taskData);
 
       this.dialogRef.close();
     }

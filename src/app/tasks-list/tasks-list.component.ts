@@ -15,11 +15,11 @@ export class TasksListComponent {
     const dialogRef = this.dialog.open(TaskModalComponent, {
       width: '400px',
       height: '275px',
-      data: {...this.tasksService.readTask(taskIndex), taskIndex: taskIndex, isEdit: true}
+      // data: {...this.tasksService.readTask(taskIndex), taskIndex: taskIndex, isEdit: true}
     });
   }
 
   onClickClose(taskIndex: number) {
-    this.tasksService.removeTask(taskIndex)
+    // this.tasksService.removeTask(taskIndex)
   }
 }

@@ -12,9 +12,9 @@ export class TaskModalComponent {
   sections = this.tasksService.getSections();
 
   taskForm = new FormGroup({
-    section: new FormControl(this.sections[0]),
-    title: new FormControl(this.data.title, [Validators.required]),
-    description: new FormControl(this.data.description)
+    section: new FormControl(this.data.section || this.tasksService.tasksList[1].section),
+    title: new FormControl(this.data.task?.title || ``, [Validators.required]),
+    description: new FormControl(this.data.task?.description || ``)
   })
 
   constructor(
@@ -25,14 +25,10 @@ export class TaskModalComponent {
 
     onClickSave(): void {
       const taskData = {...this.taskForm.value}
-      console.log(taskData)
       
-      if (!this.data.isEdit) {
-        this.tasksService.addTask(taskData)
-      }
-      // this.data.isEdit
-      // ? this.tasksService.editTask(this.data.taskIndex, taskData)
-      // : this.tasksService.addTask(taskData);
+      this.data.isEdit
+      ? console.log(this.data, this.taskForm.value)
+      : this.tasksService.addTask(taskData);
 
       this.dialogRef.close();
     }

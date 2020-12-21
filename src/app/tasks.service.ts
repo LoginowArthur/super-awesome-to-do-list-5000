@@ -34,10 +34,8 @@ export class TasksService {
   }
 
   addTask(taskData: {section: string, title: string, description: string}) {
-    console.log(taskData)
     const taskListSectionIndex = this.tasksList.map(task => task.section).indexOf(taskData.section);
     this.tasksList[taskListSectionIndex].tasks.push({title: taskData.title, description: taskData.description})
-    console.log(this.tasksList)
   }
 
   // readTask(taskIndex: number) {
@@ -52,7 +50,9 @@ export class TasksService {
   //   this.tasksList.splice(taskIndex, 1);
   // }
 
-  // editTask(taskIndex: number, task: any) {
-  //   this.tasksList[taskIndex] = task;
-  // }
+  editTask(oldSectionIndex: number, newSectionIndex: number, taskIndex: number, taskData: {title: string, description: string}) {
+    // if (oldSectionIndex == newSectionIndex) {
+    // }
+    this.tasksList[newSectionIndex].tasks[taskIndex] = { taskData }
+  }
 }

@@ -1,17 +1,20 @@
-<!-- <ul>
-    <li 
-    *ngFor="let task of tasksService.tasks; let i = index"
-    (click)="onClickTask(i)"
-    >{{task.title}} <span (click)="onClickRemove(i)">remove</span></li>
-</ul> -->
-
-<mat-expansion-panel *ngFor="let task of tasksService.tasksList; index as sectionIndex">
-    <mat-expansion-panel-header>    
-        <mat-panel-title>
-        {{task.section}}
-        </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-list role="list">
-        <mat-list-item *ngFor="let task of task.tasks; index as taskIndex" role="listitem" (click)="onClickTask(sectionIndex, taskIndex)">{{task.title}}</mat-list-item>
-    </mat-list>
-</mat-expansion-panel>
+<div cdkDropList (cdkDropListDropped)="drop($event)" class="sections-wrapper">
+    <mat-expansion-panel 
+        *ngFor="let task of tasksService.tasksList; index as sectionIndex" 
+        cdkDrag
+        cdkDragLockAxis="y" >
+        <mat-expansion-panel-header>    
+            <mat-panel-title>
+            {{task.section}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+            <mat-list-item 
+                *ngFor="let task of task.tasks; index as taskIndex"
+                role="listitem"
+                (click)="onClickTask(sectionIndex, taskIndex)">
+            {{task.title}}
+            </mat-list-item>
+        </mat-list>
+    </mat-expansion-panel>
+</div>

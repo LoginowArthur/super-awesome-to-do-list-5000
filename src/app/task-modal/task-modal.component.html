@@ -2,7 +2,7 @@
   <mat-form-field appearance="empty" class="full-width">
     <mat-label>section</mat-label>
     <mat-select formControlName="section" disableRipple>
-      <mat-option [value]="section" *ngFor="let section of sections; index as ">{{section}}</mat-option>
+      <mat-option [value]="section" *ngFor="let section of sections; index as i">{{section}}</mat-option>
     </mat-select>
   </mat-form-field>
 

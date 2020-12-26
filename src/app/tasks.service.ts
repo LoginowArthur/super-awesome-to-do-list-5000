@@ -50,7 +50,7 @@ export class TasksService {
   //   this.tasksList.splice(taskIndex, 1);
   // }
 
-  editTask(oldSectionIndex: number, newSectionIndex: number, taskIndex: number, taskData: {title: string, description: string}) {
+  editTask(originalSectionIndex: number, newSectionIndex: number, taskIndex: number, taskData: {title: string, description: string}) {
     // if (oldSectionIndex == newSectionIndex) {
     // }
     this.tasksList[newSectionIndex].tasks[taskIndex] = { taskData }

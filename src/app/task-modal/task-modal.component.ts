@@ -9,6 +9,7 @@ import { TasksService } from '../tasks.service';
   styleUrls: ['./task-modal.component.scss']
 })
 export class TaskModalComponent {
+  sectionIndex: number;
   sections = this.tasksService.getSections();
 
   taskForm = new FormGroup({
@@ -23,11 +24,18 @@ export class TaskModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
     ) {}
 
+    ngOnInit() {
+    }
+
+    onSelectionChange(sectionIndex: number): void {
+      console.log(sectionIndex);
+      this.sectionIndex = sectionIndex
+    }
+
     onClickSave(): void {
       const taskData = {...this.taskForm.value}
-      
       this.data.isEdit
-      ? console.log(this.data, this.taskForm.value)
+      ? console.log({...{}, originalSectionIndex: this.data.sectionIndex, actualSelectionIndex: this.sectionIndex, taskIndex: this.data.taskIndex, ...this.taskForm.value})
       : this.tasksService.addTask(taskData);
 
       this.dialogRef.close();

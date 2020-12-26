@@ -26,10 +26,6 @@ export class TasksListComponent {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    // moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.tasksService.tasksList, event.previousIndex, event.currentIndex);
   }
-
-  // onClickClose(taskIndex: number) {
-  //   this.tasksService.removeTask(taskIndex)
-  // }
 }

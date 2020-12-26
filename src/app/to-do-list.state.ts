@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { title } from 'process';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TasksService {
+export class ToDoListService {
   tasksList: any[] = [
     {section: "to do", tasks: [
       {title: "section autocomplete", description: "add sections autocomplete to task modal"},
@@ -24,9 +25,9 @@ export class TasksService {
     }
   }
 
-  removeSection(): void {
-
-  }
+  // removeSection(sectionIndex: number): void {
+  //   this.tasksList.filter((section, index) => index !== sectionIndex)
+  // }
 
   editSection(): void {
 

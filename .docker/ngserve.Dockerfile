@@ -1,6 +1,6 @@
 # Builder layer
-ARG NODE_VERSION=14.15.3-alpine3.12
-FROM node:${NODE_VERSION} as node-angular-cli
+ARG NODE_BUILDER_VERSION=14.15.3-alpine3.12
+FROM node:${NODE_BUILDER_VERSION} as node-angular-cli
 
 RUN apk update \
   && apk add --update alpine-sdk \
